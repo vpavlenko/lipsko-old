@@ -3,7 +3,12 @@
 import os
 
 
-DEBUG = eval(os.environ['DEBUG'])
+PROJECT_ROOT = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), ".."),
+)
+
+
+DEBUG = eval(os.getenv('DEBUG', 'False'))
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -99,7 +104,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'not_so_secret')
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -176,3 +181,12 @@ LOGGING = {
         },
     }
 }
+
+
+
+# Bower settings
+BOWER_COMPONENTS_ROOT = os.path.join(PROJECT_ROOT, 'components')
+
+BOWER_INSTALLED_APPS = (
+    'jquery',
+)
