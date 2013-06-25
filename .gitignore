@@ -4,3 +4,4 @@ localrun.sh
 set_heroku_params.sh
 secret/*
 .env
+lipsko/staticfiles/*
