@@ -13,6 +13,7 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
+    ('Vitaly Pavlenko', 'cxielamiko@gmail.com'),
 )
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -180,3 +181,11 @@ LOGGING = {
         },
     }
 }
+
+
+# Social auth
+
+VK_APP_ID = os.getenv('VK_APP_ID', '')
+VKONTAKTE_APP_ID = VK_APP_ID
+VK_API_SECRET = os.getenv('VK_API_SECRET', '')
+VKONTAKTE_APP_SECRET = VK_API_SECRET

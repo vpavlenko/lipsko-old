@@ -2,3 +2,4 @@ venv
 *.pyc
 localrun.sh
 set_heroku_params.sh
+secret/*
