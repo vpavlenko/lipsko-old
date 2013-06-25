@@ -6,3 +6,6 @@ PostgreSQL
 
 Social Auth
     http://adw0rd.com/2013/2/27/django-social-auth/#.UclzRptlVAY
+
+Zen
+    http://www.12factor.net/

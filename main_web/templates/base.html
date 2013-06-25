@@ -18,19 +18,26 @@
 
 <body>
     <header>
-    <h2>Lipsko &ndash; Prepare and share interlinear texts</h2>
-    </header>
-
-    <section>
+        {% if not user.is_anonymous %}
+            {{ user.username }}
+            <a href="{% url 'logout' %}?redirect={{ request.get_full_path|iriencode }}">Log out</a>
+        {% else %}
         {% load social_auth_widget %}
         <form action="" method="post">
             {% csrf_token %}
             <input name="username" />
             <input name="password" />
             <input type="submit" value="Sign in" />
+            <div id="via-social-auth">
             {% social_auth_widget %}
+            </div>
         </form>
-    </section>
+        {% endif %}
+    </header>
+
+    <header>
+    <h2>Lipsko &ndash; Prepare and share interlinear texts</h2>
+    </header>
 
     <section>
     {% block content %}

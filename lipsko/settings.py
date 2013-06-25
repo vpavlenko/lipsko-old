@@ -197,13 +197,28 @@ GOOGLE_OAUTH2_CLIENT_ID = os.getenv('GOOGLE_OAUTH2_CLIENT_ID', '')
 GOOGLE_OAUTH2_CLIENT_SECRET = os.getenv('GOOGLE_OAUTH2_CLIENT_SECRET', '')
 
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.google.GoogleOAuthBackend',
+    # 'social_auth.backends.google.GoogleOAuthBackend',
     'social_auth.backends.google.GoogleOAuth2Backend',
-    'social_auth.backends.google.GoogleBackend',
+    # 'social_auth.backends.google.GoogleBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
 import django.conf.global_settings
+# What do global_settings.TEMPLATE_CONTEXT_PROCESSORS provide?
+# 'django.contrib.auth.context_processors.auth',
+#     user, perms
+# 'django.core.context_processors.debug',
+#     debug, sql_queries
+# 'django.core.context_processors.i18n',
+#     LANGUAGES, LANGUAGE_CODE, LANGUAGE_BIDI 
+# 'django.core.context_processors.media',
+#     MEDIA_URL
+# 'django.core.context_processors.static',
+#     STATIC_URL
+# 'django.core.context_processors.tz',
+#     TIME_ZONE
+# 'django.contrib.messages.context_processors.messages',
+#     messages
 TEMPLATE_CONTEXT_PROCESSORS = django.conf.global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'social_auth.context_processors.social_auth_by_name_backends',
 )
@@ -216,7 +231,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.social_auth_user',
     # Получает по user.email инстанс пользователя и заменяет собой тот, который получили выше.
     # Кстати, email выдает только Facebook и GitHub, а Vkontakte и Twitter не выдают
-    'social_auth.backends.pipeline.associate.associate_by_email',
+    # 'social_auth.backends.pipeline.associate.associate_by_email',
     # Пытается собрать правильный username, на основе уже имеющихся данных
     'social_auth.backends.pipeline.user.get_username',
     # Создает нового пользователя, если такого еще нет
@@ -232,8 +247,6 @@ SOCIAL_AUTH_PIPELINE = (
 SOCIAL_AUTH_PROVIDERS = [
     {'id': p[0], 'name': p[1], 'position': {'width': p[2][0], 'height': p[2][1], }}
     for p in (
-        ('google-oauth2', u'Login via Google', (0, -70)),
-        # ('facebook', u'Login via Facebook', (0, 0)),
-        # ('twitter', u'Login via Twitter', (0, -35)),
+        ('google-oauth2', u'Login via Google', (0, -175)),
     )
 ]

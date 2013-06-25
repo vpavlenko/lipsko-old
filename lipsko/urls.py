@@ -22,7 +22,7 @@ urlpatterns = patterns('',
 
     url(r'^auth/', include('social_auth.urls')),
 
-    url(r'^$', include(main_web.urls)),
+    url(r'^', include(main_web.urls)),
 )
 
 urlpatterns += patterns('',
