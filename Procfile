@@ -1,1 +1,1 @@
-web: gunicorn lipsko.wsgi
+web: manage.py collectstatic --noinput; gunicorn lipsko.wsgi
