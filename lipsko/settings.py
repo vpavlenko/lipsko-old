@@ -100,7 +100,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-    'djangobower.finders.BowerFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -147,7 +146,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
 
     # third-party apps
-    'djangobower',
+
 
     # proper apps
     'main_web',
@@ -181,12 +180,3 @@ LOGGING = {
         },
     }
 }
-
-
-
-# Bower settings
-BOWER_COMPONENTS_ROOT = os.path.join(PROJECT_ROOT, 'components')
-
-BOWER_INSTALLED_APPS = (
-    'jquery',
-)
