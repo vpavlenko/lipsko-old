@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 
 <html>
@@ -8,7 +10,7 @@
     <style type="text/css">
 
     </style>
-    <script type="text/javascript" src="{% STATIC_URL %}js/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
     <script type="text/javascript">
 
     </script>
@@ -16,15 +18,16 @@
 
 <body>
     <header>
-    Lipsko - Prepare and share interlinear texts
+    <h2>Lipsko &ndash; Prepare and share interlinear texts</h2>
     </header>
 
     <section>
-
+    {% block content %}
+    {% endblock %}
     </section>
     
     <footer>
-    &copysign; 2013 <a href="https://github.com/vpavlenko">Vitaly Pavlenko</a>
+    &copy; 2013 <a href="https://github.com/vpavlenko">Vitaly Pavlenko</a>
     </footer>
 </body>
 </html>
