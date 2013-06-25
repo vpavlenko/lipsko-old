@@ -3,7 +3,7 @@
 import os
 
 
-DEBUG = bool(os.environ['DEBUG'])
+DEBUG = eval(os.environ['DEBUG'])
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
