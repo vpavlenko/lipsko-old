@@ -150,6 +150,7 @@ INSTALLED_APPS = (
 
     # third-party apps
     'social_auth',
+    'social_auth_widget',
 
     # proper apps
     'main_web',
@@ -196,7 +197,9 @@ GOOGLE_OAUTH2_CLIENT_ID = os.getenv('GOOGLE_OAUTH2_CLIENT_ID', '')
 GOOGLE_OAUTH2_CLIENT_SECRET = os.getenv('GOOGLE_OAUTH2_CLIENT_SECRET', '')
 
 AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.google.GoogleOAuthBackend',
     'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.google.GoogleBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -225,3 +228,12 @@ SOCIAL_AUTH_PIPELINE = (
     # Обновляет инстанс user дополнительными данными с бекенда
     'social_auth.backends.pipeline.user.update_user_details'
 )
+
+SOCIAL_AUTH_PROVIDERS = [
+    {'id': p[0], 'name': p[1], 'position': {'width': p[2][0], 'height': p[2][1], }}
+    for p in (
+        ('google-oauth2', u'Login via Google', (0, -70)),
+        # ('facebook', u'Login via Facebook', (0, 0)),
+        # ('twitter', u'Login via Twitter', (0, -35)),
+    )
+]
