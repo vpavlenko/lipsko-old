@@ -3,7 +3,8 @@ lipsko
 
 lipsko is a Django-based web application which provides a pastebin-like service to prepare and share interlinear texts.  It's mainly designed for linguists and other people interested in foreign languages to help sharing glossed texts with colleagues and friends.
 
-The application is being deployed to Heroku: http://lipsko.herokuapp.com/
+The application will be deployed to Heroku: http://lipsko.herokuapp.com/
+
 Suggested first release should be in the end of July or in August.
 
 
