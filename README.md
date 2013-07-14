@@ -3,7 +3,8 @@ lipsko
 
 lipsko is a Django-based web application which provides a pastebin-like service to prepare and share interlinear texts.  It's mainly designed for linguists and other people interested in foreign languages to help sharing glossed texts with colleagues and friends.
 
-As for now, the application is being deployed to Heroku: http://lipsko.herokuapp.com/
+The application is being deployed to Heroku: http://lipsko.herokuapp.com/
+Suggested first release should be in the end of July or in August.
 
 
 Project plan
@@ -24,7 +25,7 @@ The platform will be developed to support the following types of layers in its f
 - gloss (aligned with morpheme partitioning),
 - notes.
 
-Information stores as simply as possible.  Morphemes are stored as plain text, duplicating the source.  No pointers, positions in hyphens in source or whatsoever.
+Information stores as simply as possible.  Morphemes are stored as plain text, duplicating the source.  No pointers, positions of gloss hyphens in source or whatsoever.
 
 In the first release no linking between layer content will be supported.  I.e. no relations like those that Google translation generates.  The only stored connections between data are
 - lines of one layer are meant to be of one layer (surely we're joking),
