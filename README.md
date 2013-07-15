@@ -19,10 +19,8 @@ Suggested names are "lyrics source", "google translation" or "manual glosses".
 The platform will be developed to support the following types of layers in its first version:
 - source,
 - translation (liberal),
-- word-for-word translation,
 - morphemes (partitioning of source words),
-- gloss (aligned with morpheme partitioning),
-- notes.
+- gloss (aligned with morpheme partitioning).
 
 Information stores as simply as possible.  Morphemes are stored as plain text, duplicating the source.  No pointers, positions in hyphens in source or whatsoever.
 

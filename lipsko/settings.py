@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import sys
 
 
 PROJECT_ROOT = os.path.abspath(
@@ -21,22 +22,9 @@ PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 MANAGERS = ADMINS
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
-    }
-}
-
-
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+DATABASES = {'default': dj_database_url.config()}
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -174,12 +162,17 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout
+        },
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
+            'handlers': ['console'],
+            'level': 'INFO',
             'propagate': True,
         },
     }
@@ -210,7 +203,7 @@ import django.conf.global_settings
 # 'django.core.context_processors.debug',
 #     debug, sql_queries
 # 'django.core.context_processors.i18n',
-#     LANGUAGES, LANGUAGE_CODE, LANGUAGE_BIDI 
+#     LANGUAGES, LANGUAGE_CODE, LANGUAGE_BIDI
 # 'django.core.context_processors.media',
 #     MEDIA_URL
 # 'django.core.context_processors.static',
@@ -225,7 +218,8 @@ TEMPLATE_CONTEXT_PROCESSORS = django.conf.global_settings.TEMPLATE_CONTEXT_PROCE
 
 SOCIAL_AUTH_CREATE_USERS = True
 
-# Перечислим pipeline, которые последовательно буду обрабатывать респонс 
+
+# Перечислим pipeline, которые последовательно буду обрабатывать респонс
 SOCIAL_AUTH_PIPELINE = (
     # Получает по backend и uid инстансы social_user и user
     'social_auth.backends.pipeline.social.social_auth_user',

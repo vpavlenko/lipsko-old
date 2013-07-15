@@ -1,7 +1,7 @@
 venv
 *.pyc
 localrun.sh
-set_heroku_params.sh
+env_params.txt
 secret/*
 .env
 lipsko/staticfiles/*
